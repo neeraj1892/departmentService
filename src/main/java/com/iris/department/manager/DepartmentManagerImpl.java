@@ -36,11 +36,8 @@ public class DepartmentManagerImpl implements DepartmentManager {
     }
 
     public void deleteDepartment(long id){
-        Department department = departmentRepository.findById(id);
 
-        if(department == null){
-            throw new DepartmentNotFoundException(getMessage(DepartmentConstants.DEPARTMENT_NOT_FOUND));
-        }
+        Department department = findById(id);
 
         departmentRepository.deleteDepartment(department);
     }
@@ -53,11 +50,7 @@ public class DepartmentManagerImpl implements DepartmentManager {
     public void updateDepartment(Department department, long id){
 
         Department dept = findById(id);
-
-        if(dept == null){
-            throw new DepartmentNotFoundException(getMessage(DepartmentConstants.DEPARTMENT_NOT_FOUND));
-        }
-
+        
         department.setId(id);
         department.setCreatedOn(dept.getCreatedOn());
 
