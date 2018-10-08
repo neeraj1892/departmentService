@@ -70,4 +70,14 @@ public class Department {
 
         return Objects.hash(Id);
     }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "Id=" + Id +
+                ", deptName='" + deptName + '\'' +
+                ", createdOn=" + createdOn +
+                ", updatedOn=" + updatedOn +
+                '}';
+    }
 }
